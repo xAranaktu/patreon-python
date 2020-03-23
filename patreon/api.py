@@ -19,7 +19,7 @@ class API(object):
 
     def get_campaigns(self, page_size, cursor=None,  includes=None, fields=None):
         url = 'campaigns'
-        params = {'page[count]': page_size}
+        params = {'page[size]': page_size}
         if cursor:
             try:
                 cursor = self.__as_utc(cursor).isoformat()
@@ -37,7 +37,7 @@ class API(object):
         )
     def get_webhooks(self, page_size, cursor=None,  includes=None, fields=None):
         url = 'webhooks'
-        params = {'page[count]': page_size}
+        params = {'page[size]': page_size}
         if cursor:
             try:
                 cursor = self.__as_utc(cursor).isoformat()
@@ -50,7 +50,7 @@ class API(object):
         )
     def get_campaigns_by_id_members(self, resource_id, page_size, cursor=None,  includes=None, fields=None):
         url = 'campaigns/{}/members'.format(resource_id)
-        params = {'page[count]': page_size}
+        params = {'page[size]': page_size}
         if cursor:
             try:
                 cursor = self.__as_utc(cursor).isoformat()
